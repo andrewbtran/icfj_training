@@ -1,5 +1,5 @@
 ---
-title: "Firearm background checks"
+title: "Dataviz case study"
 author: "Andrew Ba Tran"
 date: "10/17/2019"
 output: html_document
