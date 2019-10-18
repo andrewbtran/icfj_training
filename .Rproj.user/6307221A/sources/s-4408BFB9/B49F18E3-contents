@@ -1,0 +1,171 @@
+---
+title: "Beginner Excel"
+author: "Andrew Ba Tran"
+date: "10/17/2019"
+output: html_document
+---
+
+Download and open the spreadsheet called [MLBPayrolls2009_2011.xlsx](http://andrewbatran.com/au-2017/data/ewa/MLBpayrolls2009_2011.xls) to follow along.
+ 
+
+This lab is specific to Microsoft Excel (Office 365 version and newer) for Mac, however other spreadsheet software – such as Google Sheets – have the same functionality. Of course, the buttons and specific ways to do things might be different. But I often find answers by doing a web search using the Excel terms (i.e. “how to format cells in Google Sheets). Excel for Mac has all the same functions, but looks slightly different – especially in terms of where buttons and various tools are stored.
+
+**First, a few things about spreadsheets:**
+
+
+Each sheet is made up of columns (labeled by letters) and rows (labeled by numbers). Each cell is identified by a “cell address”, consisting of the letter and number. 
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic1.png)
+
+For example, in this picture, the value “Atlanta Braves” is stored in cell A3. Note that when the cursor is on a cell, the cell is outlined in black. Note the small black square in the corner – we’ll be using that in a couple minutes. Also note that the letter and number are highlighted in green and the cell address is displayed in the upper left corner of the sheet.
+
+If you’ve ever played the board game, “Battleship”, you’ll find this similar.
+
+You’ll also notice that your cursor will change as you move it around. Most of the time, it will look like a big fat white plus sign. But if you hover over the top of the black box (around “Atlanta Braves”) you’ll get a tool that allows you to move that cell and if you hover in the lower right corner – where that little black square is – you’ll get a thin black cross. That thin black cross is used for copying formulas down or across the page. We’ll be using that a lot.
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic2.png)
+
+```
+TERMS:
+
+* Columns contain “categories” of data and are vertical
+* Rows contain “individual records” and are horizontal
+* A cell address consists of a letter followed by a number, i.e. “B4”
+* The active cell is the cell with the darker border. Click on a cell to make it active.
+* Each Excel file is described as a workbook, which can contain multiple worksheets.
+* The formula bar, which is located in the menu bar, is similar to the address bar in a web browser. Here you can view and edit formulas that you’ve created in the worksheet. 
+
+```
+
+Excel’s original purpose was for accountants, so it is really useful for doing math on small or large datasets.  But you’ll find that Excel can do a lot of things – more than you’ll probably ever need – including summarizing large datasets. This tipsheet is going to cover some of the main mathematical functions you will likely use.  After learning these, the next thing you should learn is how to use Excel’s Pivot Tables, which allows you to summarize your data (i.e. who is the largest donor in the governor’s race? What’s the average pay for each position in Major League Baseball? How many times has each restaurant been inspected?)
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic3.png)
+
+Any time you have a list of numbers that require some sort of calculation like percent change from   one   year   to   the   next, percent of total, average or just a simple total, it’s easier to put the figures into Excel and let the computer do the tough stuff for you. Excel is also extremely helpful when comparing a list of numbers to find out which one is the biggest, which is the smallest, etc.
+
+This tipsheet will use total Major League Baseball payrolls to show how to calculate percent change from year to year, percent of total, average payroll and how to sort the list to compare the teams.
+
+
+Here’s a sample of what the data looks like when we start out.
+
+Before doing any work on your data, here are a few other tips to keep in mind:
+
+1. Make sure all your columns are labeled and that the column label only takes up one row. I frequently get datasets from government agencies that have two rows worth of labels – you’ll have trouble sorting this type of spreadsheet, so you’ll want to change the header/label row before you start working. Note that in the picture above, my column labels are highlighted in grey (I did this by highlighting the cells I wanted to change to grey and right-mouse click to choose “Format Cells”, then changed the “Fill” color to grey. You don’t need to color them like this…I just find it’s useful to have the labels jump out at me.
+
+2. Make sure that any stray information that came with your dataset – such as a source tag at the bottom or notes or titles or anything above the data table – are separated 
+
+3. Make sure your data table doesn’t have any empty rows or empty columns. All the data should be neatly set up in consecutive columns and rows. In this case, we have one row for each team and each row has the team name on it. Then there are columns for the total each team spent on payroll in 2009, 2010 and 2011. This is a really important point because government agencies that send you data in Excel (or post it on their website) are horrible about following this. I often get datasets with blank columns jammed in the middle – seemingly to just make it look better. 
+
+**Shortcuts and other useful tips**
+
+**Freeze Panes:** To lock your field names in place so that you can always see them when you scroll down the page. Place your cursor in the cell just below the row that you want to lock into place, and all the way to the left of the page. Then go to View menu and select “Freeze Panes.” It gives you several options, such as freezing the top row or freezing the far left column.
+
+
+**Paste Special:** Use this function when you want to get rid of the formulas behind a column or row of data (until you get rid of the formulas, that row will be dependent on the other rows/columns used to calculate the formulas). Highlight the row(s) or column(s) that have the formulas. Copy the data using Ctrl-C or the copy button. Then put your cursor where you want to paste the data (best choice is to put it in a new column or row) and right-mouse click, then choose “Paste Special.” A little box will come up: Under the Paste section at the top, choose “Values”. Then say OK.
+
+
+**Hide columns:** You can hide columns to get them out of your way or to avoid printing them by highlighting the columns you want (click on the letter at the top of the column) and right-mouse clicking to choose “Hide columns”. The columns will disappear. To get them back, highlight the two columns on either side of the ones that are missing and right-mouse click and choose “Unhide columns.”
+
+**Add columns or rows:** To add a new column in the middle of your data, click on the letter of the column immediately to the RIGHT of where you want the new column. So if you want a new column between columns B and C, you should click on C. Make sure the whole column is highlighted (if you clicked on “C”, Excel will automatically highlight the whole column) Then right-mouse click and choose “insert”. 
+To add a new row, click on the number of the row just BELOW where you want a new one. Make sure the whole row is highlighted, then right-mouse click and choose “insert”
+
+**Worksheets:** You can toggle between different worksheets in an Excel workbook using the tabs in the lower left corner that have default names of “Sheet 1”, “Sheet 2”, etc. To change the name, double-click on the “Sheet 1” and it will turn black. Then you can start typing to give it a new name. To add a new worksheet, you’ll see a little button to the right of the tabs that gives you the option to add a new worksheet. You can move worksheets around so they appear in a different order, by clicking on the named tab with your mouse, holding down and dragging it in whatever direction you would like.
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic4.png)
+**Adjusting column width:** For better readability, you can resize column widths by dragging the line between columns left and right.
+
+Or by selecting a single column head and double clicking the line between column headers. This resizes the column to fit the widest data point in that column.
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic5.png)
+
+OR! Just click that square where the row and column headers meet (this selects all the cells in the sheet) and then double click just one line between a pair of columns. This will apply the resizing to all of the columns now.
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic6.png)
+
+## Importing data
+
+Let's explore another data set: [fatal-police-shootings-data.csv](http://andrewbatran.com/ccsu-2017/assets/data/fatal-police-shootings-data.csv)
+
+Download the file and bring it into Excel so we can analyze it.
+
+How?
+
+Select File > Open and find the file
+
+Or just double click the file in your file finder and let Excel open it automatically.
+
+Or right click the file and say open with Excel.
+
+**Wait, what’s a CSV file?**
+
+It stands for Comma Separated Values because if you look at the raw file, the data is separated by commas. In contrast, XLS stands for eXceL Sheets. If you look at the raw file, it’s just a bunch of code that only Microsoft’s Excel program can decipher.
+
+## Sorting
+
+We’re looking at police shootings.
+
+First things to do when exploring data is to see the range. Max and min and that sort of thing.
+
+Question 1 we can quickly answer: What’s the youngest age someone has been shot by police?
+
+We can do that by sorting the Age column.
+
+Hover on the right side of the column header and a small triangle will appear. Click on it and a bunch of options will show up.
+
+Select sort A - Z (this means descending order, like the alphabet). Vice versa, Z - A means ascending order.
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic7.png)
+
+Wait, what's this?
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic8.png)
+
+
+If **Continue with the current selection** was selected, then only the column would be sorted and all other columns would stay the same.
+
+This is not good.
+
+Instead, select **Expand the selection** so when the spreadsheet is sorted, the associated columns will sort with it.
+
+***SOMETIMES EXCEL WONT GIVE YOU THIS OPTION (or it won't work as it should)***
+
+If that happens, we need to freeze the top row.
+
+Select the **View** tab at the top and click on the **Freeze Top Row** button.
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic9.png)
+
+You can also freeze first column of data. 
+
+This is particularly useful if you have a lot of data and rows and want to scroll through the data without forgetting what column header was what.
+
+## Filtering
+
+We have thousands of rows which can be overwhelming.
+
+Let’s narrow it down by focusing just on the shootings that happened in DC.
+
+We have to enable filtering first.
+
+For a single column, select the column header of the column you want to filter state and then click on the **Sort & Filter** button (in the **Home** tab).
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic10.png)
+
+The little triangle will pop up permanently now in the header.
+
+Alternatively, you can enable filtering on all the columns by making sure nothing is selected before clicking the **Sort & Filter** button.
+
+Now, select the little blue triangle in the state column and then click **Select all** to get rid of all the states and scroll down and click DC so there’s a check next to it.
+
+Click OK.
+
+![](http://andrewbatran.com/au-2017/data/ewa/pic11.png)
+
+Alright, we have turned thousands of rows to just nine. Between 2015 and 2016, nine people were shot by police officers. It looks like all of them were holding some form of weapon (or something that could be mistaken for one). 
+
+A couple of them exhibited signs of mental health issues and half were perceived as attacking officers. All of them were black. Only two of the officers involved were wearing body cameras.
+
+**Next steps**
+
+Congratulations, now you’re ready to dig a little deeper with formulas and then eventually pivot tables, which summarizes the data. This enables you to answer questions like: Which states have the most shootings? What’s the average age of victims?
+

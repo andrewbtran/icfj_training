@@ -1,0 +1,227 @@
+---
+title: "Pivot tables"
+author: "Andrew Ba Tran"
+date: "10/17/2019"
+output: html_document
+---
+
+
+This walkthrough will show you how to make pivot tables in Excel. Pivot tables is a way to summarize and explore data interactively. It helps extract what might be significant from a large, detailed data set. 
+
+We'll be working with the Washington Post shootings [data](https://github.com/washingtonpost/data-police-shootings/raw/master/fatal-police-shootings-data.csv) (right click and save as). Pivot tables will let us answer questions like: 
+
+Which states have the most shootings? What’s the average age of victims?
+
+### Setting up
+
+First, open the *fatal-police-shootings-data.csv* file in Excel.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot1.png)
+
+### Pivot
+
+Select all the rows and columns with values (ctrl + a, cmd + a, or click the cell where the rows and column headers intersect), and then click on the **Insert** tab in the menu and click on the **PivotTable** icon at the top left.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot2.png)
+
+
+Alternatively, instead of clicking the button, go to the menu under Data and select Summarize with Pivot Table.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot3.png)
+
+
+Excel will make sure you've selected the right columns and rows and where you want to put it. 
+
+
+These options are fine. Just click OK.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot4.png)
+
+
+A new sheet will pop up with a blank grid. With a PivotTable Fields editor window on the right.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot5.png)
+
+
+In **FIELD NAME** there are all the column names, such as id, name, date, manner_of_death, etc.
+
+
+
+You'll see a few suggestions, like Count of name for each race or Count of distinct armed for each flee.
+
+Then there are blank boxes for **Filters**, **Columns**, **Rows**, and **Values**. This is where we'll drag column names from Field Name into and build some summaries.
+
+### PIVOT TABLES
+
+Here's where you can explore the data interactively.
+
+Let's start out with the first question: **Which states have the most shootings?**
+
+### COUNT
+
+On the right, in the window called PivotTableFields, click and drag state into the Rows box.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot6.png)
+
+
+
+
+Now we've got rows of abbreviations of the states in the *state* column of raw data.
+
+Next, drag *state* from **FIELD NAME** into the **Values** box.
+
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot7.png)
+
+
+
+This means, that you've counted up each instance of a particular state from the raw data.
+
+Okay, I need to figure out quickly which state has the most. We can't sort the data within a Pivot Table.
+
+We need to bring the data over into a new sheet. Click the plus button (+) at the bottom of the Spreadsheet to add a new blank sheet.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot8.png)
+
+
+Go back to Sheet1 and select only the cells with the data (you don't need to grab the Grand Total part .
+
+Copy it (right click + copy or cmd+c or ctrl+c).
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot9.png)
+
+
+Go to Sheet2 and paste in the new data.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot10.png)
+
+
+Uh oh, that doesn't look right.
+
+What happened? You've run into a common error when dealing with Spreadsheets.
+
+You pasted the data, which includes the format of the pivot table. That doesn't translate correctly.
+
+What you want to do is right click and select **Paste Special** (shortcut is ctrl+cmd+V).
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot11.png)
+
+
+And select **Values**.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot12.png)
+
+
+and click **OK**.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot13.png)
+
+
+There, that looks correct. Now, let's rename the columns: State and Shootings.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot14.png)
+
+
+Alright, now let's click the **B** header above **Shootings** so it selects the whole column. 
+
+Then click the **Sort & Filter** button under the **Home** tab and choose Sort Highest to Lowest. Go ahead and choose Expand Selection from the popup.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot15.png)
+
+
+And this is what we get:
+
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot16.png)
+
+
+
+Alright, now we know that the top three states are California, Texas, and Florida.
+
+That kind of makes sense because they're the states with the most population in the country.
+
+Let's figure out the average age of the victims.
+
+### AVERAGE
+
+Go back to Sheet1 to the **PivotTable** Fields editor and drag *age* into the **Values** box.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot17.png)
+
+
+The default summary will be **Sum**, which we don't want.
+
+Click the ***i*** next to ***Sum of age*** and select *Average*.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot18.png)
+
+
+Click OK.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot19.png)
+
+
+Nice.
+
+Copy and paste (values only) the new data into Sheet2 and sort it by Average Age of victim smallest to largest.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot20.png)
+
+
+Iowa and Illinois have the youngest victims based on their average age.
+
+### Columns
+
+But that's if men and women are counted as one. What if we separated the two. Would the average age change the state rankings?
+
+Go back to Sheet1 and drag gender from **FIELD NAME** into **Columns**. 
+
+Choose *Gender*.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot22.png)
+
+
+Let's explore this new summary. Copy the data and paste (values only) into Sheet2.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot23.png)
+
+
+We need to rename the columns so we understand what's going on.
+
+Call them **State**, **Female total**, **Male total**, **Female avg age**, **Male avg age**, **Total**, and **Avg age**.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot24.png)
+
+
+Some new columns appear automatically, breaking out *Average of age* and *Count of state* but for **F** and **M**.
+
+Let's sort the average age for women from smallest to largest.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot25.png)
+
+
+The average age for women killed in Pennsylvania is 12. Granted, that's because only one woman was killed there, which skews the average.
+
+Still, you can see how this is very powerful in looking for stories you your raw data.
+
+Start with a question. **State with the most?**
+
+Which leads to another question. **What about average age?**
+
+Which leads to another. **Is lumping together men and women affecting the average age?**
+
+We found an outlier. A 12-year-old girl was shot and killed in Pennsylvania.
+
+Go back to Sheet1 and double click the 1 next to PA or the 12 and you'll get a new sheet focused just on her in the raw data.
+
+![](http://andrewbatran.com/ewa/pivot_tables/pivot26.png)
+
+
+Ciara Meyer was a white girl who was unarmed and not fleeing or showing signs of mental illness when she was shot and killed by police.
+
+Pivot tables is a powerful and easy way to make sense of big data.
+
+
+
+
+

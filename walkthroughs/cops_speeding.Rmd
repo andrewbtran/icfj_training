@@ -1,0 +1,229 @@
+---
+title: 'Case study: Speeding cops'
+author: "Andrew Ba Tran"
+date: "7/28/2019"
+output: html_document
+---
+
+Quantifying Florida's speeding cops
+
+Reproducing how the Sun-Sentinel busted speeding cops using databases and grade-school arithmetic.
+This is an exercise in using spreadsheets (formulas and joins) and pivot tables to see how aggregation is necessary for finding insights in granular data.
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lFwhw6BRHDo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### About the data
+
+The data comes from the Sun Sentinel's online database, "Speeding Cops in South Florida".
+
+Each row in the SunPass data set represents a trip associated with a cop vehicle's transponder. The transponder is tracked by toll booths.
+
+![](http://andrewbatran.com/ewa/cops/cops1.png)
+
+The second data set was compiled using a GPS that reporters purchased. It details the distance between the toll plazas listed in the "to_place" column in the data above.
+
+![](http://andrewbatran.com/ewa/cops/cops2.png)
+
+And that was enough for the Sun Sentinel to do their Pulitzer-award-winning analysis and investigation.
+
+
+
+From the page:
+
+>>A Sun Sentinel investigation of officers’ SunPass toll records found nearly 800 cops from a dozen agencies drove 90 to 130 mph on highways in Broward, Palm Beach and Miami-Dade counties from October 2010 through November 2011. This database shows transponders that exceeded an average of 90 mph at least three times during that time period.
+
+Note that the data published by the Sun Sentinel simplifies the work they had to do, including measuring the distance between toll stations and filtering out irrelevant data. And of course, the [massive legal fight](http://www.ire.org/blog/ire-news/2013/04/15/how-sun-sentinel-reported-its-pulitzer-prize-winni/) to get the data.
+
+The data for this exercise includes all published records from [the Sentinel database](http://databases.sun-sentinel.com/news/broward/ftlaudCopSpeeds/ftlaudCopSpeeds_list.php) that relate to the [Miami Police](http://databases.sun-sentinel.com/news/broward/ftlaudCopSpeeds/ftlaudCopSpeeds_list.php?q=%28Agency~equals~Miami+PD%29) – roughly 27,000 rows. It's been modified so that you have to recreate the average speed value yourself.
+
+### Our goals
+
+After importing the data into a spreadsheet, we want to find:
+
+* The highest speed reached any individual police vehicle.
+
+* The number of unique transponders in the data. Whether this is a rough indication of number of unique police officer depends on how cars/transponders are allocated.
+
+* The highest average speed associated with a police vehicle/transponder.
+
+* Highest average speed by time of day
+
+Also, can we find [the transponder that belongs to the trooper](http://www.ire.org/blog/ire-news/2013/04/15/how-sun-sentinel-reported-its-pulitzer-prize-winni/) described here:
+
+>>The worst speeder in the bunch? The same Miami cop caught going 120 mph by the state trooper. Our analysis showed he commuted at speeds above 100 mph on 114 days and only slowed down after his traffic stop hit the news.
+
+### Getting started
+
+* Data from SunPass [[download]](http://andrewbatran.com/au-2018/slides/class6/sun_sentinel/transponders.csv)
+
+* Data on distances between toll plazas compiled by reporters [[download]](http://andrewbatran.com/au-2018/slides/class6/sun_sentinel/distances.csv)
+
+### How do you calculate speed?
+
+![](http://andrewbatran.com/ewa/cops/cops3.gif)
+
+
+It's a formula.
+
+**Distance = Speed * Time**
+
+**Time = Distance / Speed**
+
+**Speed = Distance / Time**
+
+The transponders.csv data has Time.
+
+The distances.data data has distance.
+
+Bring them together to determine speed.
+
+### Join the data
+
+Before joining:
+
+1. Determine which column to join on
+
+2. Are the values in that column clean enough to prevent errors?
+
+We want to join on location. But there are two columns for locations.
+
+This will be problematic.
+
+![](http://andrewbatran.com/ewa/cops/cops4.png)
+
+
+
+If we joined on the column first column on the left, it would skip out on the columns on the right. 
+
+### Solution?
+
+Combine those two columns into a new one.
+
+1. Bring both sheets into a single workbook and label them correctly.
+
+![](http://andrewbatran.com/ewa/cops/cops5.png)
+
+
+
+2. Go to the **transponders** sheet and add a new column label called from_to.
+
+3. Use the formula **concatenate()** to combine strings.
+
+![](http://andrewbatran.com/ewa/cops/cops6.png)
+
+Specifically, the formula is a string builder. It starts with either a cell selection or string itself.
+
+The formula =concatenate(C2, "-", D2) can be translated to mean =concatenate(value-in-C2, "whatever string I want here, which is a dash", value-in-D2)
+
+That will give Bird Road NB ORT Lite-Okeechobee.
+
+Apply the formula down.
+
+And don't forget to copy and paste values so it replaces the formulas with the values.
+
+![](http://andrewbatran.com/ewa/cops/cops7.png)
+
+Repeat the concatenate process with the **distances** sheet.
+
+### BUT!!!
+
+Restructure the data so that the *from_to column* in the **distances** sheet is to the left of the distance column.
+
+This is just an Excel thing to make the join easier.
+
+![](http://andrewbatran.com/ewa/cops/cops8.png)
+
+It should look like this.
+
+Now we can go back to the **transponders** sheet and create a new column called distance and try to join the data.
+
+If we were to use **vlookup()** the formula would be =IFERROR(VLOOKUP(I2, distances!$C$2:$D$60, 2, FALSE), "")
+
+And that means =IFERROR(VLOOKUP(target-cell, sheet-to-join!$range$of:$two-columns$of-data, which-column-in-selected-range-to-bring-over, non-exact-match-is-okay), "")
+
+Let's try another easier way. It's a pairing of the **INDEX()** and **MATCH()** functions.
+
+It's MATCH(lookup_value, lookup_array, [match_type])
+
+and INDEX(array, row_num, [column_num])
+
+And essentially it's 
+
+=INDEX(column-to-return-a-value-from, MATCH(lookup-value, column-to-look-up-against, 0))
+
+So the formula should be in this instance
+
+=INDEX(distances!D$2:D$61, MATCH(transponders!I2, distances!C$2:C$60, 0))
+
+![](http://andrewbatran.com/ewa/cops/cops9.png)
+
+
+
+Apply the formula down and paste into values over itself.
+
+### Prepare data for calculating speed
+
+We have start_time and end_time. 
+
+We need to calculate total_time.
+
+Add a new column in the transponders sheet called total_time.
+
+The formula for time difference is simply to subtract the end time from the start time.
+
+![](http://andrewbatran.com/ewa/cops/cops10.png)
+
+But that will give you 0:05:21 which is accurate but...
+
+We want to figure speed, which is miles per hour. 
+
+Miles per hour.
+
+per hour.
+
+**hour.**
+
+We need to translate 0:05:21 into hour increments.
+
+the formula is simply the difference between end and start times multiplied by 24 (hours in the day, right?)
+
+![](http://andrewbatran.com/ewa/cops/cops11.png)
+
+hm, 2:08:24 isn't right.
+
+But that's because of Excel's formatting.
+
+Right click the **total_time** column and select *Format Cells*.
+
+Select **Number** and click OK.
+
+![](http://andrewbatran.com/ewa/cops/cops12.png)
+
+Now you've got the time in hourly decimals.
+
+So the original data was 0:05:21, 5 minutes and 21 seconds, which is actually .09 hours.
+
+We've got distance and now we've got time. 
+
+### Calculating speed
+
+Add a new column called **speed** and put in the formula.
+
+Based on the formulas above that's distance / time.
+
+So the formula in L2 is =J2/K2 which is 96 miles per hour. Apply the formula down.
+
+![](http://andrewbatran.com/ewa/cops/cops13.png)
+
+
+
+Now can you find:
+
+* The highest speed reached any individual police vehicle.
+
+* The number of unique transponders in the data. Whether this is a rough indication of number of unique police officer depends on how cars/transponders are allocated.
+
+* The highest average speed associated with a police vehicle/transponder.
+
+* Highest average speed by time of day

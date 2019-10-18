@@ -1,0 +1,137 @@
+---
+title: "Joining data"
+author: "Andrew Ba Tran"
+date: "10/17/2019"
+output: html_document
+---
+
+Joining different data isn't that difficult to do in Excel if you use Index and Match.
+
+Let's start out with this [index_match.xlsx](http://andrewbatran.com/ewa/index_match.xlsx) so we have something simple to work with.
+
+Download and open the file in Excel. 
+
+It should look like this:
+
+
+![](http://andrewbatran.com/ewa/joining_data/index1.png)
+
+
+
+The goal here is to bring the tax figure associated with the city in the second table up to the first table.
+
+Let's first start with the =match() function.
+
+This is the formula.
+
+=match(lookup_value, lookup_array, [match_type])
+
+Start typing it out in cell D2. =match(
+
+
+
+![](http://andrewbatran.com/ewa/joining_data/index2.png)
+
+Now select the lookup_value, which in this instance will be New York. Select C2.
+
+![](http://andrewbatran.com/ewa/joining_data/index3.png)
+
+Put in a comma, and select the lookup_array, as in which cells to look for the "New York."
+
+Select the range of cells in the second table where all the city name cells are: B13:B15.
+
+![](http://andrewbatran.com/ewa/joining_data/index4.png)
+
+
+
+That's all you need at this point. Press enter to run the formula and apply the formula to all the cells in the top table.
+
+You'll see something wrong.
+
+
+
+![](http://andrewbatran.com/ewa/joining_data/index5.png)
+
+
+
+**What happened?**
+
+It's the formula. We need to add anchors to the lookup_array so that it doesn't move down one with every cell below.
+
+Go back to the formula and add the anchors like B$13:B$15.
+
+
+
+![](http://andrewbatran.com/ewa/joining_data/index6.png)
+
+Congrats, that works.
+
+New York matches the third entry in the selected array.
+
+Denver matches the first entry in the selected array.
+
+London matches the second entry in the selected array.
+
+
+
+![](http://andrewbatran.com/ewa/joining_data/index7.png)
+
+Now that we have match() working successfully, we bring in index().
+
+In front of match() but in front of the = sign, add index(
+
+and then select the array that you want to bring over when matched.
+
+So select the tax cells next to the cities in the second table.
+
+DONT FORGET TO ADD THE ANCHORS ($).
+
+Add a comma.
+
+So in the end you have =INDEX(C$13:C$15, MATCH(C2, B$13:kB$15))
+
+
+
+![](http://andrewbatran.com/ewa/joining_data/index8.png)
+
+
+
+Apply that formula to the cells below and you'll have everything you need!
+
+Don't forget to copy and paste values only to get rid of the formula.
+
+![](http://andrewbatran.com/ewa/joining_data/index9.png)
+
+You can do it on the flip side.
+
+Let's do it for region.
+
+Do the match() formula as before.
+
+![](http://andrewbatran.com/ewa/joining_data/index10.png)
+
+
+
+If it worked correctly, you'll have the number of row where it matches in the second table.
+
+![](http://andrewbatran.com/ewa/joining_data/index11.png)
+
+
+
+OK, now type in the index formula and select a new index array. 
+
+This time we're selecting the cells to the left of the city column, under region.
+
+![](http://andrewbatran.com/ewa/joining_data/index12.png)
+
+Make sure you add the anchors and apply the formula to the other cells.
+
+
+
+![](http://andrewbatran.com/ewa/joining_data/index13.png)
+
+
+
+Looks good! You've joined data.
+
+Great job.

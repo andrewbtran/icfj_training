@@ -1,0 +1,179 @@
+---
+title: "Dirty Data: PDFs"
+author: "Andrew Ba Tran"
+date: "7/26/2019"
+output: html_document
+---
+
+Sometimes you will be dealing with
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf1.png)
+
+If you're lucky, you can select the table from the PDF and copy and paste it over to another sheet.
+
+If that works, great!
+
+But sometimes the format gets wonky.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf2.png)
+
+
+
+Fortunately, people have been working on ways to free data trapped in PDFs.
+
+* **Tabula** Extract Tables from PDFs
+* **Nitro** | Edit PDF, Sign & Share Digital Documents
+* **Cometdocs**
+
+All the options above are popular choices but have pros and cons.
+
+## [Tabula](https://tabula.technology/)
+
+**Pros**: No limit to amount of documents, allows control of what section of the PDF to select/download. Can create templates.
+
+**Cons**: Really slow. If many people using it on the same IP can create a bottleneck.
+
+## [Nitro](https://www.gonitro.com/)
+
+**Pros**: Fast
+
+**Cons**: Faster for people who pay. Honestly, I don't use this. I use the option below.
+
+## [Cometdocs](https://www.cometdocs.com/)
+
+**Pros**: Fast, multiple output options like Excel, Word, etc.
+
+**Cons**: A limited amount of PDFs allowed to be converted a month. 
+
+However, if you're a member of IRE, you can get a free upgraded account. I recommend you go that route.
+
+#### Go to Cometdocs and [sign up](http://www.cometdocs.com/user/login).
+
+Go ahead and [create an account](http://www.cometdocs.com/user/login).
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf4.png)
+
+This is the main page. There are four tabs in the middle:
+
+* Convert
+* Transfer
+* Store
+* Host
+
+Above that is the area you can upload PDFs.
+
+Download these 3 files and upload them into Cometdocs (right click and save as to your computer).
+
+* [2009Enrollment.pdf](http://andrewbatran.com/ccsu-2017/assets/data/2009Enrollment.pdf) 
+
+* [2010Enrollment.pdf](http://andrewbatran.com/ccsu-2017/assets/data/2010Enrollment.pdf)  
+
+* [2011Enrollment.pdf](http://andrewbatran.com/ccsu-2017/assets/data/2011Enrollment.pdf) 
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf5.png)
+
+The files are now in the staging area.
+
+Click on the **Convert tab** and drag each file from the staging area into the **Convert box**.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf6.png)
+
+Select to Excel (xlsx) and then click the Convert button on the right.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf7.png)
+
+It will switch to the **Store** tab and a bar will move under the **XLS** button until it stops. 
+
+That means it's ready to download.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf8.png)
+
+Click to download and go back and download the rest of the spreadsheets.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf9.png)
+
+
+Bring the files into Excel or Google Sheets.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf10.png)
+
+OK, looks like it worked. But now it will require some massive cleaning up.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf12.png)
+
+Rename the sheets to **2009**, **2010**, **2011** and also delete any blank sheets.
+
+We need to be organized.
+
+OK, let's get rid of all rows with extraneous rows.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf11.png)
+
+
+
+
+
+We've now reached the point of organizing data. What we do next depends on what we want to do with the data.
+
+You can always refer to the original PDFs to see the way the structure is laid out.
+
+We have three years worth of data on college enrollment.
+
+For each sheet, the colleges are sub categorized by what system they are a part of. There's also separate data for subtotals, totals, and Coast Guard.
+
+There are many ways to visualize this data.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf1.png)
+
+Let's start simple.
+
+**Chart out the Full-Time Undergrad total for 2009, 2010, and 2011.**
+
+To do this, we need to pull out the data and put it into a separate sheet.
+
+First, create a new sheet at the bottom.
+
+Name it CSUS
+
+Copy and paste the names of the colleges we're focusing on over into the new sheet:
+
+* Central
+* Eastern
+* Southern
+* Western
+
+Leave a space in the first row so you can name that Connecticut State University System. We have to stay organized.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf14.png)
+
+Find the data that matches the 2009 total enrollment figures (Look at the PDF if you need help narrowing it down)
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf15.png)
+
+Copy and paste those numbers into the CSUS sheet next to the school name.
+
+Leave a space in the first row so you can name that 2009.
+
+Do this for the other remaining years for Full-time students enrolled. You don't have to bring the names in because you've already done it.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf17.png)
+
+Here's a quick new trick from Google Spreadsheets.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf18.png)
+
+Select all the data you've got and click on the bottom right plus button that says **Explore**.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf19.png)
+
+It will pop open a window of preliminary analysis of the data.
+
+![](http://andrewbtran.github.io/JRN-418/class5/pdf20.png)
+
+You can see what sort of options you have for visualizing the data.
+
+In this example, it won't work well because Google Sheets is interpreting 2009, 2010, 2011 as numbers that instead of headers.
+
+**For fun, take it over to [Datawrapper.de](https://www.datawrapper.de/) and make a cool visualization**
+
+

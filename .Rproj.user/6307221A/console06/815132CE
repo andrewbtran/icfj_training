@@ -1,0 +1,3 @@
+bash: /Users/andrewtran/.bash_profile: line 20: syntax error near unexpected token `then'
+bash: /Users/andrewtran/.bash_profile: line 20: `eval "$(rbenv init -)"if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi'
+]0;~/Projects/icfj_training[?1034hAndrews-MacBook:icfj_training andrewtran$ [KAndrews-MacBook:icfj_training andrewtran$ 
