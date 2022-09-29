@@ -4,7 +4,7 @@
 
 - [Beginner Excel](https://andrewbtran.github.io/icfj_training/walkthroughs/beginner_excel.html)
 
-- [Newsroom Excel Formulas](https://andrewbtran.github.io/icfj_training/data/Newsroom Excel Formulas.xlsx)
+- [Newsroom Excel Formulas](https://andrewbtran.github.io/icfj_training/data/Newsroom_Excel_Formulas.xlsx)
 
 - [Excel class questions](https://andrewbtran.github.io/icfj_training/data/Excel_Class_1_questions.xlsx)
 
