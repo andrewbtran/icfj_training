@@ -1,7 +1,7 @@
 ---
 title: "Formulas"
 author: "Andrew Ba Tran"
-date: "10/17/2019"
+date: "09/29/2022"
 output: html_document
 ---
 
@@ -10,11 +10,11 @@ Start with the Washington Post [shootings data](https://github.com/washingtonpos
 
 We’ve summarized the total number of incidents per state already, right?
 
-![](http://andrewbatran.com/ewa/formulas/formulas1.png)
+![](https://andrewbatran.com/ewa/formulas/formulas1.png)
 
 This was by selecting dragging **state** into the Rows box on the right and dragging **state** into the values box and making sure *Count of* is selected.
 
-![](http://andrewbatran.com/ewa/formulas/formulas2.png)
+![](https://andrewbatran.com/ewa/formulas/formulas2.png)
 
 Well, let’s go a bit deeper.
 
@@ -26,7 +26,7 @@ That turned **two** dimensions of data into three.
 
 But this let's look at **race**. Let’s drag the race option into the Columns box.
 
-![](http://andrewbatran.com/ewa/formulas/formulas3.png)
+![](https://andrewbatran.com/ewa/formulas/formulas3.png)
 
 Now we’ve added the extra factor of race into this summary.
 
@@ -48,21 +48,21 @@ The data needs to be copied into another sheet so the data can be wrangled.
 
 Select the cells and copy it (command + c or ctrl+c) and hit the + button on the bottom left to create a new sheet within the data you already have.
 
-![](http://andrewbatran.com/ewa/formulas/formulas4.png)
+![](https://andrewbatran.com/ewa/formulas/formulas4.png)
 
 Click the name Sheet2 and rename it *Percent by race* since that’s what we’re going to be doing with the data.
 
-![](http://andrewbatran.com/ewa/formulas/formulas5.png)
+![](https://andrewbatran.com/ewa/formulas/formulas5.png)
 
 >>>Important note about pasting: You can’t just copy and paste data without sometimes picking odd formating and code behind that data. When transforming data, it’s good practice to strip that out by being sure to right+click and select Paste values only.
 
 OK, **Paste values only** the pivot table data into the Percent by race sheet.
 
-![](http://andrewbatran.com/ewa/formulas/formulas6.png)
+![](https://andrewbatran.com/ewa/formulas/formulas6.png)
 
 It should look like this.
 
-![](http://andrewbatran.com/ewa/formulas/formulas7.png)
+![](https://andrewbatran.com/ewa/formulas/formulas7.png)
 
 Notice how the format is slightly different because the styles have been stripped?
 
@@ -70,7 +70,7 @@ Label the first blank column State.
 
 Replace the single letters for races: A is Asian, B is Black, H is Hispanic, N is for Native American, O is for Other Pacific, and W is for White. Leave (blank) alone.
 
-![](http://andrewbatran.com/ewa/formulas/formulas8.png)
+![](https://andrewbatran.com/ewa/formulas/formulas8.png)
 
 Alright, now we can do some math. We want to find out the percent of shooting incidents with police by race by state.
 
@@ -90,7 +90,7 @@ Scroll past Grand Total in Column **I** and add these columns:
 
 * White.percent
 
-![](http://andrewbatran.com/ewa/formulas/formulas9.png)
+![](https://andrewbatran.com/ewa/formulas/formulas9.png)
 
 ### Formulas
 
@@ -112,7 +112,7 @@ So = and then math.
 
 If you type in the values of Total and black total as a formula, you get =12/42*100. Type that into the correct cell and click out of the cell gives you would give you 28.57142857. (But click back into the cell and you get the formula)
 
-![](http://andrewbatran.com/ewa/formulas/formulas10.png)
+![](https://andrewbatran.com/ewa/formulas/formulas10.png)
 
 Alright, but typing in the values takes too long.
 
@@ -122,13 +122,13 @@ Two options: Type it or just select it (after you put in the = so the app knows 
 
 So =12/42*100 is also =C3/I3*100.
 
-![](http://andrewbatran.com/ewa/formulas/formulas11.png)
+![](https://andrewbatran.com/ewa/formulas/formulas11.png)
 
 ### Applying the formula to other rows
 
 Copy and paste the formula that you just created into the cell above it to see what the percent is for Alaska.
 
-![](http://andrewbatran.com/ewa/formulas/formulas12.png)
+![](https://andrewbatran.com/ewa/formulas/formulas12.png)
 
 The formula is now =C2/I2*100 but you didn’t change anything, right?
 
@@ -142,7 +142,7 @@ Select the cell with the formula in Black.percent and find the little green squa
 
 Drag it down a few cells.
 
-![](http://andrewbatran.com/ewa/formulas/formulas13.png)
+![](https://andrewbatran.com/ewa/formulas/formulas13.png)
 
 Same thing.
 
@@ -152,7 +152,7 @@ Here’s another way to apply the formula to the rest of the cells:
 
 Double click the little green square on the bottom right corner of the cell this time.
 
-![](http://andrewbatran.com/ewa/formulas/formulas14.png)
+![](https://andrewbatran.com/ewa/formulas/formulas14.png)
 
 >>>Tip for applying: Sometimes dragging the little blue box can take a long time if you have a very long data set. Double click the little blue box if you want to apply it to the rest of the column. However, this only works if the columns you’re working with are not interrupted by a blank cell.
 
@@ -164,7 +164,7 @@ We already have the formula for calculating Black percentage so it makes sense t
 
 Try dragging the little green square in Black.percent for Alabama to the right over to Hispanic.percent.
 
-![](http://andrewbatran.com/ewa/formulas/formulas15.png)
+![](https://andrewbatran.com/ewa/formulas/formulas15.png)
 
 Looks like we have an error.
 
@@ -192,17 +192,17 @@ To keep a value static (or unchanged) in a formula, you have to put a $ in front
 
 So the formula should be =D3/$I3*100. You’re letting everything change except the I column.
 
-![](http://andrewbatran.com/ewa/formulas/formulas16.png)
+![](https://andrewbatran.com/ewa/formulas/formulas16.png)
 
 Now, drag the little green box all the way to White.percent cell.
 
-![](http://andrewbatran.com/ewa/formulas/formulas17.png)
+![](https://andrewbatran.com/ewa/formulas/formulas17.png)
 
 No errors, it worked!
 
 Now! Double click that little green square in the White.percent.
 
-![](http://andrewbatran.com/ewa/formulas/formulas18.png)
+![](https://andrewbatran.com/ewa/formulas/formulas18.png)
 
 Cool, right?
 
@@ -210,7 +210,7 @@ It automatically filled in everything in that range.
 
 Alright, copy and paste that formula into the other rows and columns where they’re needed so everything is filled out (The Alaska row and the Asian.percent column)
 
-![](http://andrewbatran.com/ewa/formulas/formulas19.png)
+![](https://andrewbatran.com/ewa/formulas/formulas19.png)
 
 That looks very nice.
 
@@ -222,7 +222,7 @@ Looks like New Mexico and Rhode Island have the highest percents in the country 
 
 >>>Note You can freeze the first column so it’s easier to see which state lines up with what row. (View > Freeze First Column)
 
-![](http://andrewbatran.com/ewa/formulas/formulas20.png)
+![](https://andrewbatran.com/ewa/formulas/formulas20.png)
 
 Another note: Rhode Island only has two total shootings. The small sample size will throw off the percent so that should be noted if you write a story about that.
 
@@ -238,7 +238,7 @@ Double click the little green square and apply that formula to all the rows.
 
 Then sort it highest to lowest.
 
-![](http://andrewbatran.com/ewa/formulas/formulas21.png)
+![](https://andrewbatran.com/ewa/formulas/formulas21.png)
 
 At the top of the spreadsheet, you’ve got the positive numbers.
 
@@ -248,7 +248,7 @@ Washington DC, Rhode Island, and Maryland have the most at 100, 50, and 42 perce
 
 But look in the other direction. New Hampshire, Montana, Utah, Connecticut. The gap between whites shot and blacks shot by police is also large.
 
-![](http://andrewbatran.com/ewa/formulas/formulas22.png)
+![](https://andrewbatran.com/ewa/formulas/formulas22.png)
 
 A lot of what can explain for these percentages is the percent of the population in each of these areas.
 

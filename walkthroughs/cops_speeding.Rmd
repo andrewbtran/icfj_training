@@ -1,7 +1,7 @@
 ---
 title: 'Case study: Speeding cops'
 author: "Andrew Ba Tran"
-date: "7/28/2019"
+date: "09/29/2022"
 output: html_document
 ---
 
@@ -19,11 +19,11 @@ The data comes from the Sun Sentinel's online database, "Speeding Cops in South 
 
 Each row in the SunPass data set represents a trip associated with a cop vehicle's transponder. The transponder is tracked by toll booths.
 
-![](http://andrewbatran.com/ewa/cops/cops1.png)
+![](https://andrewbatran.com/ewa/cops/cops1.png)
 
 The second data set was compiled using a GPS that reporters purchased. It details the distance between the toll plazas listed in the "to_place" column in the data above.
 
-![](http://andrewbatran.com/ewa/cops/cops2.png)
+![](https://andrewbatran.com/ewa/cops/cops2.png)
 
 And that was enough for the Sun Sentinel to do their Pulitzer-award-winning analysis and investigation.
 
@@ -33,9 +33,9 @@ From the page:
 
 >>A Sun Sentinel investigation of officers’ SunPass toll records found nearly 800 cops from a dozen agencies drove 90 to 130 mph on highways in Broward, Palm Beach and Miami-Dade counties from October 2010 through November 2011. This database shows transponders that exceeded an average of 90 mph at least three times during that time period.
 
-Note that the data published by the Sun Sentinel simplifies the work they had to do, including measuring the distance between toll stations and filtering out irrelevant data. And of course, the [massive legal fight](http://www.ire.org/blog/ire-news/2013/04/15/how-sun-sentinel-reported-its-pulitzer-prize-winni/) to get the data.
+Note that the data published by the Sun Sentinel simplifies the work they had to do, including measuring the distance between toll stations and filtering out irrelevant data. And of course, the [massive legal fight](https://www.ire.org/blog/ire-news/2013/04/15/how-sun-sentinel-reported-its-pulitzer-prize-winni/) to get the data.
 
-The data for this exercise includes all published records from [the Sentinel database](http://databases.sun-sentinel.com/news/broward/ftlaudCopSpeeds/ftlaudCopSpeeds_list.php) that relate to the [Miami Police](http://databases.sun-sentinel.com/news/broward/ftlaudCopSpeeds/ftlaudCopSpeeds_list.php?q=%28Agency~equals~Miami+PD%29) – roughly 27,000 rows. It's been modified so that you have to recreate the average speed value yourself.
+The data for this exercise includes all published records from [the Sentinel database](https://databases.sun-sentinel.com/news/broward/ftlaudCopSpeeds/ftlaudCopSpeeds_list.php) that relate to the [Miami Police](https://databases.sun-sentinel.com/news/broward/ftlaudCopSpeeds/ftlaudCopSpeeds_list.php?q=%28Agency~equals~Miami+PD%29) – roughly 27,000 rows. It's been modified so that you have to recreate the average speed value yourself.
 
 ### Our goals
 
@@ -49,19 +49,19 @@ After importing the data into a spreadsheet, we want to find:
 
 * Highest average speed by time of day
 
-Also, can we find [the transponder that belongs to the trooper](http://www.ire.org/blog/ire-news/2013/04/15/how-sun-sentinel-reported-its-pulitzer-prize-winni/) described here:
+Also, can we find [the transponder that belongs to the trooper](https://www.ire.org/blog/ire-news/2013/04/15/how-sun-sentinel-reported-its-pulitzer-prize-winni/) described here:
 
 >>The worst speeder in the bunch? The same Miami cop caught going 120 mph by the state trooper. Our analysis showed he commuted at speeds above 100 mph on 114 days and only slowed down after his traffic stop hit the news.
 
 ### Getting started
 
-* Data from SunPass [[download]](http://andrewbatran.com/au-2018/slides/class6/sun_sentinel/transponders.csv)
+* Data from SunPass [[download]](https://andrewbatran.com/au-2018/slides/class6/sun_sentinel/transponders.csv)
 
-* Data on distances between toll plazas compiled by reporters [[download]](http://andrewbatran.com/au-2018/slides/class6/sun_sentinel/distances.csv)
+* Data on distances between toll plazas compiled by reporters [[download]](https://andrewbatran.com/au-2018/slides/class6/sun_sentinel/distances.csv)
 
 ### How do you calculate speed?
 
-![](http://andrewbatran.com/ewa/cops/cops3.gif)
+![](https://andrewbatran.com/ewa/cops/cops3.gif)
 
 
 It's a formula.
@@ -90,7 +90,7 @@ We want to join on location. But there are two columns for locations.
 
 This will be problematic.
 
-![](http://andrewbatran.com/ewa/cops/cops4.png)
+![](https://andrewbatran.com/ewa/cops/cops4.png)
 
 
 
@@ -102,7 +102,7 @@ Combine those two columns into a new one.
 
 1. Bring both sheets into a single workbook and label them correctly.
 
-![](http://andrewbatran.com/ewa/cops/cops5.png)
+![](https://andrewbatran.com/ewa/cops/cops5.png)
 
 
 
@@ -110,7 +110,7 @@ Combine those two columns into a new one.
 
 3. Use the formula **concatenate()** to combine strings.
 
-![](http://andrewbatran.com/ewa/cops/cops6.png)
+![](https://andrewbatran.com/ewa/cops/cops6.png)
 
 Specifically, the formula is a string builder. It starts with either a cell selection or string itself.
 
@@ -122,7 +122,7 @@ Apply the formula down.
 
 And don't forget to copy and paste values so it replaces the formulas with the values.
 
-![](http://andrewbatran.com/ewa/cops/cops7.png)
+![](https://andrewbatran.com/ewa/cops/cops7.png)
 
 Repeat the concatenate process with the **distances** sheet.
 
@@ -132,7 +132,7 @@ Restructure the data so that the *from_to column* in the **distances** sheet is 
 
 This is just an Excel thing to make the join easier.
 
-![](http://andrewbatran.com/ewa/cops/cops8.png)
+![](https://andrewbatran.com/ewa/cops/cops8.png)
 
 It should look like this.
 
@@ -156,7 +156,7 @@ So the formula should be in this instance
 
 =INDEX(distances!D$2:D$61, MATCH(transponders!I2, distances!C$2:C$60, 0))
 
-![](http://andrewbatran.com/ewa/cops/cops9.png)
+![](https://andrewbatran.com/ewa/cops/cops9.png)
 
 
 
@@ -172,7 +172,7 @@ Add a new column in the transponders sheet called total_time.
 
 The formula for time difference is simply to subtract the end time from the start time.
 
-![](http://andrewbatran.com/ewa/cops/cops10.png)
+![](https://andrewbatran.com/ewa/cops/cops10.png)
 
 But that will give you 0:05:21 which is accurate but...
 
@@ -188,7 +188,7 @@ We need to translate 0:05:21 into hour increments.
 
 the formula is simply the difference between end and start times multiplied by 24 (hours in the day, right?)
 
-![](http://andrewbatran.com/ewa/cops/cops11.png)
+![](https://andrewbatran.com/ewa/cops/cops11.png)
 
 hm, 2:08:24 isn't right.
 
@@ -198,7 +198,7 @@ Right click the **total_time** column and select *Format Cells*.
 
 Select **Number** and click OK.
 
-![](http://andrewbatran.com/ewa/cops/cops12.png)
+![](https://andrewbatran.com/ewa/cops/cops12.png)
 
 Now you've got the time in hourly decimals.
 
@@ -214,7 +214,7 @@ Based on the formulas above that's distance / time.
 
 So the formula in L2 is =J2/K2 which is 96 miles per hour. Apply the formula down.
 
-![](http://andrewbatran.com/ewa/cops/cops13.png)
+![](https://andrewbatran.com/ewa/cops/cops13.png)
 
 
 

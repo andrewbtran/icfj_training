@@ -1,11 +1,11 @@
 ---
 title: "Beginner Excel"
 author: "Andrew Ba Tran"
-date: "10/17/2019"
+date: "09/29/2022"
 output: html_document
 ---
 
-Download and open the spreadsheet called [MLBPayrolls2009_2011.xlsx](http://andrewbatran.com/au-2017/data/ewa/MLBpayrolls2009_2011.xls) to follow along.
+Download and open the spreadsheet called [MLBPayrolls2009_2011.xlsx](https://andrewbatran.com/au-2017/data/ewa/MLBpayrolls2009_2011.xls) to follow along.
  
 
 This lab is specific to Microsoft Excel (Office 365 version and newer) for Mac, however other spreadsheet software – such as Google Sheets – have the same functionality. Of course, the buttons and specific ways to do things might be different. But I often find answers by doing a web search using the Excel terms (i.e. “how to format cells in Google Sheets). Excel for Mac has all the same functions, but looks slightly different – especially in terms of where buttons and various tools are stored.
@@ -15,7 +15,7 @@ This lab is specific to Microsoft Excel (Office 365 version and newer) for Mac, 
 
 Each sheet is made up of columns (labeled by letters) and rows (labeled by numbers). Each cell is identified by a “cell address”, consisting of the letter and number. 
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic1.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic1.png)
 
 For example, in this picture, the value “Atlanta Braves” is stored in cell A3. Note that when the cursor is on a cell, the cell is outlined in black. Note the small black square in the corner – we’ll be using that in a couple minutes. Also note that the letter and number are highlighted in green and the cell address is displayed in the upper left corner of the sheet.
 
@@ -23,7 +23,7 @@ If you’ve ever played the board game, “Battleship”, you’ll find this sim
 
 You’ll also notice that your cursor will change as you move it around. Most of the time, it will look like a big fat white plus sign. But if you hover over the top of the black box (around “Atlanta Braves”) you’ll get a tool that allows you to move that cell and if you hover in the lower right corner – where that little black square is – you’ll get a thin black cross. That thin black cross is used for copying formulas down or across the page. We’ll be using that a lot.
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic2.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic2.png)
 
 ```
 TERMS:
@@ -39,7 +39,7 @@ TERMS:
 
 Excel’s original purpose was for accountants, so it is really useful for doing math on small or large datasets.  But you’ll find that Excel can do a lot of things – more than you’ll probably ever need – including summarizing large datasets. This tipsheet is going to cover some of the main mathematical functions you will likely use.  After learning these, the next thing you should learn is how to use Excel’s Pivot Tables, which allows you to summarize your data (i.e. who is the largest donor in the governor’s race? What’s the average pay for each position in Major League Baseball? How many times has each restaurant been inspected?)
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic3.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic3.png)
 
 Any time you have a list of numbers that require some sort of calculation like percent change from   one   year   to   the   next, percent of total, average or just a simple total, it’s easier to put the figures into Excel and let the computer do the tough stuff for you. Excel is also extremely helpful when comparing a list of numbers to find out which one is the biggest, which is the smallest, etc.
 
@@ -71,20 +71,20 @@ To add a new row, click on the number of the row just BELOW where you want a new
 
 **Worksheets:** You can toggle between different worksheets in an Excel workbook using the tabs in the lower left corner that have default names of “Sheet 1”, “Sheet 2”, etc. To change the name, double-click on the “Sheet 1” and it will turn black. Then you can start typing to give it a new name. To add a new worksheet, you’ll see a little button to the right of the tabs that gives you the option to add a new worksheet. You can move worksheets around so they appear in a different order, by clicking on the named tab with your mouse, holding down and dragging it in whatever direction you would like.
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic4.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic4.png)
 **Adjusting column width:** For better readability, you can resize column widths by dragging the line between columns left and right.
 
 Or by selecting a single column head and double clicking the line between column headers. This resizes the column to fit the widest data point in that column.
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic5.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic5.png)
 
 OR! Just click that square where the row and column headers meet (this selects all the cells in the sheet) and then double click just one line between a pair of columns. This will apply the resizing to all of the columns now.
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic6.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic6.png)
 
 ## Importing data
 
-Let's explore another data set: [fatal-police-shootings-data.csv](http://andrewbatran.com/ccsu-2017/assets/data/fatal-police-shootings-data.csv)
+Let's explore another data set: [fatal-police-shootings-data.csv](https://andrewbatran.com/ccsu-2017/assets/data/fatal-police-shootings-data.csv)
 
 Download the file and bring it into Excel so we can analyze it.
 
@@ -114,11 +114,11 @@ Hover on the right side of the column header and a small triangle will appear. C
 
 Select sort A - Z (this means descending order, like the alphabet). Vice versa, Z - A means ascending order.
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic7.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic7.png)
 
 Wait, what's this?
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic8.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic8.png)
 
 
 If **Continue with the current selection** was selected, then only the column would be sorted and all other columns would stay the same.
@@ -133,7 +133,7 @@ If that happens, we need to freeze the top row.
 
 Select the **View** tab at the top and click on the **Freeze Top Row** button.
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic9.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic9.png)
 
 You can also freeze first column of data. 
 
@@ -149,7 +149,7 @@ We have to enable filtering first.
 
 For a single column, select the column header of the column you want to filter state and then click on the **Sort & Filter** button (in the **Home** tab).
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic10.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic10.png)
 
 The little triangle will pop up permanently now in the header.
 
@@ -159,7 +159,7 @@ Now, select the little blue triangle in the state column and then click **Select
 
 Click OK.
 
-![](http://andrewbatran.com/au-2017/data/ewa/pic11.png)
+![](https://andrewbatran.com/au-2017/data/ewa/pic11.png)
 
 Alright, we have turned thousands of rows to just nine. Between 2015 and 2016, nine people were shot by police officers. It looks like all of them were holding some form of weapon (or something that could be mistaken for one). 
 
