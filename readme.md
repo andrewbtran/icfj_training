@@ -2,11 +2,14 @@
 
 ## Links
 
+- [Beginner Excel](https://andrewbtran.github.io/icfj_training/walkthroughs/beginner_excel.html)
 
+- [Newsroom Excel Formulas](https://andrewbtran.github.io/icfj_training/data/Newsroom Excel Formulas.xlsx)
+
+- [Excel class questions](https://andrewbtran.github.io/icfj_training/data/Excel_Class_1_questions.xlsx)
 
 ## Extras
 
-- [Beginner Excel](https://andrewbtran.github.io/icfj_training/walkthroughs/beginner_excel.html)
 
 - [First steps](https://andrewbtran.github.io/icfj_training/walkthroughs/first_steps.html)
 
